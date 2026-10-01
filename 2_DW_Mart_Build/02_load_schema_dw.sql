@@ -38,3 +38,30 @@ FROM read_csv('https://storage.googleapis.com/sql_de/skills_job_dim.csv',
     HEADER=TRUE) AS bridge
 INNER JOIN skills_dim AS skills USING (skill_id)
 INNER JOIN job_postings_fact AS jobs USING (job_id);
+
+-- Data Validation
+SELECT 'Company Dim' AS table_name,
+    COUNT(*) AS record_count FROM company_dim
+UNION ALL
+SELECT 'Skills Dim' AS table_name,
+    COUNT(*) AS record_count FROM skills_dim
+UNION ALL
+SELECT 'Job Postings Fact' AS table_name,
+    COUNT(*) AS record_count FROM job_postings_fact
+UNION ALL
+SELECT 'Skills Job Dim' AS table_name,
+    COUNT(*) AS record_count FROM skills_job_dim
+    ;
+
+-- Show sample data
+SELECT '=== Company Dimension Sample ===' AS info;
+SELECT * FROM company_dim LIMIT 5;
+
+SELECT '=== Skills Dimension Sample ===' AS info;
+SELECT * FROM skills_dim LIMIT 5;
+
+SELECT '=== Job Postings Fact Sample ===' AS info;
+SELECT * FROM job_postings_fact LIMIT 5;
+
+SELECT '=== Skills Job Bridge Sample ===' AS info;
+SELECT * FROM skills_job_dim LIMIT 5;
