@@ -1,4 +1,9 @@
 -- Step 1: DW - Create star schema tables
+-- Run this first
+
+-- Set up initial configurations
+PRAGMA enable_progress_bar;
+PRAGMA enable_checkpoint_on_shutdown;
 
 -- Drop tables in the right order
 -- (i.e.) eliminate foreing references first
@@ -14,7 +19,7 @@ CREATE TABLE company_dim (
 
 CREATE TABLE skills_dim (
     skill_id    INTEGER     PRIMARY KEY,
-    name        VARCHAR,
+    skills      VARCHAR,
     type        VARCHAR
 );
 
