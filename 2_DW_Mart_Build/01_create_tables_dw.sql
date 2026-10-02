@@ -1,10 +1,6 @@
 -- Step 1: DW - Create star schema tables
 -- Run this first
 
--- Set up initial configurations
-PRAGMA enable_progress_bar;
-PRAGMA enable_checkpoint_on_shutdown;
-
 -- Drop tables in the right order
 -- (i.e.) eliminate foreing references first
 DROP TABLE IF EXISTS skills_job_dim;

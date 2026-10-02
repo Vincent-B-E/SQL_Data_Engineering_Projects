@@ -4,6 +4,10 @@
 -- Usage (Local):
 --   Run this script with: duckdb dw_marts.duckdb -c ".read build_dw_marts.sql"
 
+-- Set up initial configurations
+PRAGMA enable_progress_bar;
+PRAGMA enable_checkpoint_on_shutdown;
+
 -- Step 1: Create star schema tables
 .read 01_create_tables_dw.sql
 
